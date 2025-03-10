@@ -41,9 +41,7 @@
             font-weight: bold;
         }
 
-        input,
-        select,
-        button {
+        input, select, button {
             width: 90%;
             padding: 10px;
             margin-bottom: 10px;
@@ -77,16 +75,10 @@
             color: #f85149;
         }
 
-        .hint {
+        .secret {
             margin-top: 10px;
-            font-size: 0.9rem;
-            color: #8b949e;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        .hint:hover {
-            color: #58a6ff;
+            color: #ff9800;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -108,10 +100,8 @@
         <input type="text" id="shaggy" placeholder="Enter your answer">
         <button class="grumpyCat" onclick="bigChungus()">Submit</button>
 
-        <p class="hint" onclick="rickAstley()">💡 Let's be real here</p>
-        <p id="bongoCat" style="display: none;">https://www.youtube.com/watch?v=pxw-5qfJ1dk</p>
-
         <p id="yoda"></p>
+        <p id="secretCode" class="secret" style="display: none;"></p>
     </div>
 
     <script>
@@ -121,10 +111,10 @@
             affine: "TUJJI MJRMF"
         };
 
-        const securityCheck = {
-            caesar: "WRONGANSWER",
-            vigenere: "FAKEFLAG",
-            affine: "NOTTHIS"
+        const secretCodes = {
+            caesar: "H3LL0_W0RLD",
+            vigenere: "V1G3N3R3_R0X",
+            affine: "A5F1N3_1337"
         };
 
         let megamind = 0;
@@ -139,37 +129,20 @@
             const gru = document.getElementById("spongebob").value;
             const shaggyInput = document.getElementById("shaggy").value.toUpperCase();
             const morty = document.getElementById("yoda");
+            const secretElement = document.getElementById("secretCode");
 
             if (shaggyInput === gigaChad[gru]) {
                 morty.textContent = "Dammn Son";
                 morty.className = "pepe";
+                secretElement.textContent = secretCodes[gru];
+                secretElement.style.display = "block";
             } else {
                 morty.textContent = "Aww.. Hell nah mann";
                 morty.className = "rickroll";
+                secretElement.style.display = "none";
                 megamind++;
             }
         }
-
-        function rickAstley() {
-            document.getElementById("bongoCat").style.display = "block";
-        }
-
-        document.addEventListener('contextmenu', (e) => e.preventDefault());
-
-        document.addEventListener('keydown', function (event) {
-            if (
-                event.ctrlKey &&
-                (event.key === "u" || event.key === "i" || event.key === "j" || event.key === "s")
-            ) {
-                event.preventDefault();
-            }
-        });
-
-        document.addEventListener('keydown', function (e) {
-            if (e.key === "F12") {
-                e.preventDefault();
-            }
-        });
     </script>
 </body>
 
