@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dank Cipher Challenge</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: #0d1117;
+            color: #e6edf3;
+            font-family: 'OCR A Extended', monospace;
+            margin: 0;
+        }
+
+        .shrek {
+            background: #161b22;
+            border: 3px solid #58a6ff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(88, 166, 255, 0.4);
+            padding: 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            color: #58a6ff;
+            margin-bottom: 15px;
+        }
+
+        .doge {
+            background: #21262d;
+            border: 2px solid #58a6ff;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        button {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 6px;
+            background: #30363d;
+            color: #e6edf3;
+            text-align: center;
+        }
+
+        .grumpyCat {
+            background: #58a6ff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .grumpyCat:hover {
+            background: #1f6feb;
+        }
+
+        #yoda {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .pepe {
+            color: #3fb950;
+        }
+
+        .rickroll {
+            color: #f85149;
+        }
+
+        .hint {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #8b949e;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .hint:hover {
+            color: #58a6ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shrek">
+        <h2>Adithattu_Cypher</h2>
+
+        <div class="doge">
+            <p><b>ZEBBW QBPQH</b></p>
+        </div>
+
+        <select id="spongebob">
+            <option value="caesar">Caesar Cipher (Shift = 7)</option>
+            <option value="vigenere">Vigenère Cipher (Key = FLAME)</option>
+            <option value="affine">Affine Cipher (a = 5, b = 8)</option>
+        </select>
+
+        <input type="text" id="shaggy" placeholder="Enter your answer">
+        <button class="grumpyCat" onclick="bigChungus()">Submit</button>
+
+        <p class="hint" onclick="rickAstley()">💡 Let's be real here</p>
+        <p id="bongoCat" style="display: none;">https://www.youtube.com/watch?v=pxw-5qfJ1dk</p>
+
+        <p id="yoda"></p>
+    </div>
+
+    <script>
+        const gigaChad = {
+            caesar: "U0VDUkVU",
+            vigenere: "UFJPVEVDVA==",
+            affine: "Q1JZUFRP"
+        };
+
+        const securityCheck = {
+            caesar: "WRONGANSWER",
+            vigenere: "FAKEFLAG",
+            affine: "NOTTHIS"
+        };
+
+        let megamind = 0;
+
+        function bigChungus() {
+            if (megamind >= 3) {
+                alert("Too many attempts! Try again in 1 minute. HeHe");
+                setTimeout(() => megamind = 0, 60000);
+                return;
+            }
+
+            const gru = document.getElementById("spongebob").value;
+            const shaggyInput = document.getElementById("shaggy").value.toUpperCase();
+            const morty = document.getElementById("yoda");
+
+            if (btoa(shaggyInput) === gigaChad[gru]) {
+                morty.textContent = "Dammn Son";
+                morty.className = "pepe";
+            } else {
+                morty.textContent = "Aww.. Hell nah mann";
+                morty.className = "rickroll";
+                megamind++;
+            }
+        }
+
+        function rickAstley() {
+            document.getElementById("bongoCat").style.display = "block";
+        }
+
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+        document.addEventListener('keydown', function (event) {
+            if (
+                event.ctrlKey &&
+                (event.key === "u" || event.key === "i" || event.key === "j" || event.key === "s")
+            ) {
+                event.preventDefault();
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "F12") {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>
