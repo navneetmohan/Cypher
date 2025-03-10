@@ -116,9 +116,9 @@
 
     <script>
         const gigaChad = {
-            caesar: "U0VDUkVU",
-            vigenere: "UFJPVEVDVA==",
-            affine: "Q1JZUFRP"
+            caesar: "NMUIL EJIXW",
+            vigenere: "UTBPS LQPED",
+            affine: "BGSAL UVADI"
         };
 
         const securityCheck = {
@@ -140,7 +140,7 @@
             const shaggyInput = document.getElementById("shaggy").value.toUpperCase();
             const morty = document.getElementById("yoda");
 
-            if (btoa(shaggyInput) === gigaChad[gru]) {
+            if (shaggyInput === gigaChad[gru]) {
                 morty.textContent = "Dammn Son";
                 morty.className = "pepe";
             } else {
